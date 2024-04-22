@@ -28,10 +28,10 @@ class BookingController extends Controller
     {
         $user = User::find(auth()->id());
 
-        // check if the user is old enough to watch the movie
+        // check if the user is old enough to watch the movie 
         if ($user->age < $movie->age_rating) {
             return back()
-                ->with('error', 'You are not old enough to watch this movie!');
+                ->with('error', 'Anda belum cukup umur untuk menonton film ini!');
         }
 
         $currentDate = today('Asia/Jakarta')->format('Y-m-d');
@@ -46,7 +46,7 @@ class BookingController extends Controller
         // check if the date and showtime is in the past of the current date and time
         if ($isPastDate || ($isToday && $isPastShowtime)) {
             return back()
-                ->with('error', 'Cannot book tickets for past dates and showtimes!');
+                ->with('error', 'Tidak dapat memesan tiket untuk tanggal dan jam tayang yang sudah lewat!');
         }
 
         $seats = Seat::all();
@@ -85,7 +85,7 @@ class BookingController extends Controller
         // check if the user has enough balance to book the tickets
         if ($user->balance < $booking->total_price) {
             return back()
-                ->with('error', 'You do not have enough balance to book these tickets!');
+                ->with('error', 'Saldo Anda tidak cukup untuk memesan tiket ini');
         }
 
         $user->balance -= $booking->total_price;
@@ -99,7 +99,7 @@ class BookingController extends Controller
 
         return redirect()
             ->route('home')
-            ->with('success', 'Successfully booked tickets!');
+            ->with('success', 'Tiket berhasil dipesan!');
     }
 
     /**
@@ -115,8 +115,9 @@ class BookingController extends Controller
             ->latest()
             ->paginate(5);
 
-        $currentDate = today('Asia/Jakarta')->format('Y-m-d');
+        $currentDate = today('Asia/Jakarta')->format('l, j F Y');
         $currentTime = now('Asia/Jakarta')->format('H:i:s');
+
 
         return view('bookings.index', compact('bookings', 'currentDate', 'currentTime'));
     }
@@ -142,6 +143,6 @@ class BookingController extends Controller
 
         return redirect()
             ->route('bookings.index')
-            ->with('success', 'Booking cancelled!');
+            ->with('success', 'Pemesanan dibatalkan!');
     }
 }

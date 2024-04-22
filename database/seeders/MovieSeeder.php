@@ -25,6 +25,7 @@ class MovieSeeder extends Seeder
                 'description' => $movie['description'],
                 'release_date' => $movie['release_date'],
                 'poster_url' => $movie['poster_url'],
+                'trailer_url' => $movie['trailer_url'],
                 'age_rating' => $movie['age_rating'],
                 'ticket_price' => $movie['ticket_price'],
             ]);

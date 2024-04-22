@@ -2,12 +2,13 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     @hasSection('title')
-        <title>@yield('title') - {{ config('app.name') }}</title>
+    <title>@yield('title') - {{ config('app.name') }}</title>
     @else
-        <title>{{ config('app.name') }}</title>
+    <title>{{ config('app.name') }}</title>
     @endif
 
     <!-- Favicon -->

@@ -17,6 +17,7 @@ return new class extends Migration {
             $table->text('description');
             $table->date('release_date');
             $table->string('poster_url');
+            $table->string('trailer_url');
             $table->string('age_rating');
             $table->bigInteger('ticket_price');
             $table->datetimes();

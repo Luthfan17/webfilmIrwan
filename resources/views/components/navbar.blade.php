@@ -3,7 +3,7 @@
         <h1>
             <a href="{{ route('home') }}"
                 class="font-bold text-xl text-gray-50 focus:outline focus:outline-2 focus:rounded-sm focus:outline-white">
-                {{ config('app.name') }}
+                <!-- {{ config('app.name') }} -->irwan
             </a>
         </h1>
         <button data-collapse-toggle="navbar-hamburger" type="button"
@@ -18,54 +18,53 @@
         </button>
         <div class="hidden w-full" id="navbar-hamburger">
             @if (Route::has('login'))
-                <ul
-                    class="flex flex-col font-medium mt-4 rounded-lg bg-primary-500 dark:bg-gray-800 dark:border-gray-700">
-                    @auth
-                        <li>
-                            <a href="{{ route('profile') }}"
-                                class="font-bold text-lg text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-white flex items-center">
-                                <span class="mr-2">
-                                    {{ auth()->user()->username }}
-                                </span>
-                                <span
-                                    class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                                    Balance: Rp {{ number_format(auth()->user()->balance) }}
-                                </span>
-                            </a>
-                        </li>
-                        <hr class="my-2 border-gray-200">
-                        <li>
-                            <a href="{{ route('bookings.index') }}"
-                                class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-white">
-                                Bookings
-                            </a>
-                        </li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}" class="inline">
-                                @csrf
-                                <button type="submit"
-                                    class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
-                                    Log out
-                                </button>
-                            </form>
-                        </li>
-                    @else
-                        <li>
-                            <a href="{{ route('login') }}"
-                                class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
-                                Log in
-                            </a>
-                        </li>
-                        @if (Route::has('register'))
-                            <li>
-                                <a href="{{ route('register') }}"
-                                    class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
-                                    Register
-                                </a>
-                            </li>
-                        @endif
-                    @endauth
-                </ul>
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-primary-500 dark:bg-gray-800 dark:border-gray-700">
+                @auth
+                <li>
+                    <a href="{{ route('profile') }}"
+                        class="font-bold text-lg text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-white flex items-center">
+                        <span class="mr-2">
+                            {{ auth()->user()->username }}
+                        </span>
+                        <span
+                            class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                            Saldo Anda: Rp {{ number_format(auth()->user()->balance) }}
+                        </span>
+                    </a>
+                </li>
+                <hr class="my-2 border-gray-200">
+                <li>
+                    <a href="{{ route('bookings.index') }}"
+                        class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-white">
+                        Pesanan Anda
+                    </a>
+                </li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                        @csrf
+                        <button type="submit"
+                            class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
+                            Keluar
+                        </button>
+                    </form>
+                </li>
+                @else
+                <li>
+                    <a href="{{ route('login') }}"
+                        class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
+                        Masuk
+                    </a>
+                </li>
+                @if (Route::has('register'))
+                <li>
+                    <a href="{{ route('register') }}"
+                        class="font-semibold text-gray-50 hover:text-gray-200 focus:outline focus:outline-2 focus:rounded-sm focus:outline-rose-500">
+                        Daftar
+                    </a>
+                </li>
+                @endif
+                @endauth
+            </ul>
             @endif
 
         </div>

@@ -22,6 +22,7 @@ class Movie extends Model
         'description',
         'release_date',
         'poster_url',
+        'trailer_url',
         'age_rating',
         'ticket_price',
     ];

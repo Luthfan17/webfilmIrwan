@@ -1,0 +1,19 @@
+/* Contoh warna latar belakang */
+
+.movie-list {
+    background-color: #ff0000;
+    /* Gunakan kode warna heksadesimal */
+}
+
+/* Atau gunakan nama warna */
+
+.background {
+    background-color: red;
+}
+
+/* Atau menggunakan RGBA untuk transparansi */
+
+.background {
+    background-color: rgba(255, 0, 0, 0.5);
+    /* Warna merah dengan 50% transparansi */
+}

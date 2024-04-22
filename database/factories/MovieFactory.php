@@ -21,6 +21,7 @@ class MovieFactory extends Factory
             'description' => fake()->paragraph(),
             'release_date' => fake()->date(),
             'poster_url' => fake()->imageUrl(),
+            'trailer_url' => fake()->trailerUrl(),
             'age_rating' => fake()->numberBetween(10, 15),
             'ticket_price' => fake()->numberBetween(10000, 50000),
         ];

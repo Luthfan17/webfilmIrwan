@@ -40,7 +40,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('login')
-            ->with('success', 'Account created successfully! Please login using your new account.');
+            ->with('success', 'Akun berhasil dibuat! Silakan login menggunakan akun baru Anda.');
     }
 
     /**
@@ -71,12 +71,12 @@ class UserController extends Controller
 
             return redirect()
                 ->route('home')
-                ->with('success', 'Login successful!');
+                ->with('success', 'Anda berhasil masuk');
         }
 
         return back()
             ->withErrors([
-                'username' => 'Incorrect username or password.',
+                'username' => 'Nama panggilan atau kata sandi salah!',
             ])
             ->onlyInput('username');
     }
@@ -96,7 +96,7 @@ class UserController extends Controller
 
         return redirect()
             ->route('home')
-            ->with('success', 'You have been logged out!');
+            ->with('success', 'Anda telah keluar!');
     }
 
     /**
@@ -162,6 +162,6 @@ class UserController extends Controller
 
         return redirect()
             ->route('profile')
-            ->with('success', 'Profile updated successfully!');
+            ->with('success', 'Profil berhasil diperbarui!');
     }
 }
